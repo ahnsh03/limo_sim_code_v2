@@ -1,9 +1,32 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="sim_code_v2" type="lane_follower.py" name="lane_follower" output="screen"/>
+    <!-- BEV 차선 인식 노드 -->
+    <node pkg="sim_code_v2" type="lane_follower_bev.py" name="lane_follower_bev" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw/compressed"/>
+        <param name="cmd_topic" value="/cmd_vel"/>
+        <param name="mode_topic" value="/limo/mode"/>
+    </node>
 
-    <node pkg="sim_code_v2" type="m3_gate_nav.py" name="m3_gate_nav" output="screen"/>
+    <!-- M3 게이트 네비게이션 노드 -->
+    <node pkg="sim_code_v2" type="m3_gate_nav.py" name="m3_gate_nav" output="screen">
+        <param name="scan_topic" value="/scan"/>
+        <param name="cmd_topic" value="/cmd_vel"/>
+        <param name="mode_topic" value="/limo/mode"/>
+    </node>
 
-    <node pkg="sim_code_v2" type="m4_cone_follower.py" name="m4_cone_follower" output="screen"/>
+    <!-- M4 콘 추종 노드 -->
+    <node pkg="sim_code_v2" type="m4_cone_follower.py" name="m4_cone_follower" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw/compressed"/>
+        <param name="cmd_topic" value="/cmd_vel"/>
+        <param name="mode_topic" value="/limo/mode"/>
+    </node>
+
+    <!-- 초기 모드를 LANE으로 설정 (선택사항) -->
+    <!-- 필요시 주석 해제하여 자동 시작 -->
+    <!--
+    <node pkg="rostopic" type="rostopic" name="set_initial_mode" 
+          args="pub /limo/mode std_msgs/String 'data: LANE'" 
+          output="screen" launch-prefix="bash -c 'sleep 2; $0 $@'"/>
+    -->
 </launch>
 

@@ -12,7 +12,7 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import CompressedImage
 from std_msgs.msg import String
 
-class LaneFollowerBEVFinal:
+class LaneFollowerBEV:
     def __init__(self):
         rospy.init_node("lane_follower_bev_final", anonymous=False)
 
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     # [수정 2] 안전한 종료를 위한 핸들러 등록
     node = None
     try:
-        node = LaneFollowerBEVFinal()
+        node = LaneFollowerBEV()
         
         # 종료 시 호출될 함수
         def cleanup():
