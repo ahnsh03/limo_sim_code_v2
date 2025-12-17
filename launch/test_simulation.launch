@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 
+    LIMO 시뮬레이션 테스트용 launch 파일
+    limo_ackerman.launch를 실행하고 간단한 컨트롤러를 시작합니다.
+    -->
+    
+    <!-- Gazebo 시뮬레이터 실행 -->
+    <include file="$(find limo_gazebo_sim)/launch/limo_ackerman.launch">
+        <arg name="gui" value="true"/>
+        <arg name="rviz" value="true"/>
+        <arg name="world_name" value="$(find limo_gazebo_sim)/worlds/limo_track_obstacle.world"/>
+    </include>
+    
+    <!-- 간단한 컨트롤러 노드 (선택사항) -->
+    <!-- 필요시 주석 해제하여 사용 -->
+    <!--
+    <node name="simple_controller" pkg="sim_code_v2" type="simple_controller.py" output="screen"/>
+    -->
+    
+    <!-- 키보드 조종 노드 (선택사항) -->
+    <!-- 필요시 주석 해제하여 사용 -->
+    <!--
+    <node name="teleop_keyboard" pkg="sim_code_v2" type="teleop_keyboard.py" output="screen"/>
+    -->
+    
+</launch>
+

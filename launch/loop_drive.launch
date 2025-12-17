@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="sim_code_v2" type="lane_follower.py" name="lane_follower" output="screen"/>
+
+    <node pkg="sim_code_v2" type="m3_gate_nav.py" name="m3_gate_nav" output="screen"/>
+
+    <node pkg="sim_code_v2" type="m4_cone_follower.py" name="m4_cone_follower" output="screen"/>
+</launch>
+

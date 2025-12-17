@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 전방 장애물 거리 확인 런치 파일 -->
+  <!-- 사용법: roslaunch sim_code_v2 check_front_distance.launch -->
+  <!-- 리모를 적절한 위치에 놓고 전방 장애물까지의 거리를 확인 -->
+  
+  <!-- 전방 거리 확인 노드 -->
+  <!-- 주의: check_front_obstacle_distance.py 파일이 필요합니다 -->
+  <!-- 현재는 limo_navigation에만 존재하므로, 필요시 해당 파일도 복사해야 합니다 -->
+  <!--
+  <node pkg="sim_code_v2" type="check_front_obstacle_distance.py" name="front_obstacle_distance_checker" output="screen">
+    <param name="scan_topic" value="/scan"/>
+    <param name="front_angle_range" value="30.0"/>
+    <param name="min_range" value="0.01"/>
+    <param name="max_range" value="10.0"/>
+  </node>
+  -->
+  
+</launch>
+
