@@ -41,9 +41,7 @@ include_directories(
 catkin_install_python(PROGRAMS
   nodes/simple_controller.py
   nodes/teleop_keyboard.py
-  nodes/lane_follower.py
   nodes/lane_follower_bev.py
-  nodes/m3_gap_follower_v1.py
   nodes/m3_gate_nav.py
   nodes/m4_cone_follower.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
